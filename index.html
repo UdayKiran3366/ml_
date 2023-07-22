@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ad Click Prediction</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 30px;
+    }
+
+    label {
+      margin-bottom: 10px;
+    }
+
+    input {
+      width: 200px;
+      padding: 8px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 8px 16px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    #prediction {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ad Click Prediction</h1>
+  <form id="predictionForm">
+    <label for="age">Age:</label>
+    <input type="number" id="age" required>
+
+    <label for="gender">Gender (0: Male, 1: Female):</label>
+    <input type="number" id="gender" required>
+
+    <label for="category">Category (0: Technology, 1: Sports):</label>
+    <input type="number" id="category" required>
+
+    <button type="button" onclick="predictClick()">Predict Click</button>
+  </form>
+
+  <div id="prediction"></div>
+
+  <script>
+    function predictClick() {
+      const age = document.getElementById('age').value;
+      const gender = document.getElementById('gender').value;
+      const category = document.getElementById('category').value;
+
+      // Use the ML model to predict the click
+      // You can use AJAX or fetch to send the data to a server-side script (e.g., Flask) for prediction
+      // For simplicity, we'll directly implement the prediction logic here
+      const prediction = age < 30 && gender == 1 && category == 1 ? 'Clicked' : 'Not Clicked';
+
+      document.getElementById('prediction').innerText = `Prediction: ${prediction}`;
+    }
+  </script>
+</body>
+</html>
